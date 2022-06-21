@@ -4,14 +4,16 @@
   <p><%= movie.title %></p>
 <% end %>
 
-<h2>Create a new List</h2>
+<%= link_to "delete list", list_path(@list), class:"button-action", data: { turbo_method: :delete, turbo_confirm: "Are you sure"} %>
+
+<h2>Add a new movie</h2>
 
 <div class="container">
   <div class="row">
     <div class="col-6">
-      <%= simple_form_for [ @list, @bookmark] do |f| %>
+      <%= simple_form_for [@list, @bookmark] do |f| %>
+        <%= f.input :movie %>
         <%= f.input :comment %>
-        <%= f.input :movie_id %>
         <%= f.button :submit, class: 'btn btn-primary mt-3'%>
       <% end %>
     </div>

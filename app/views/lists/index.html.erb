@@ -3,3 +3,19 @@
   <%= link_to list.name, list_path(list) %>
 <% end %>
 
+<%= link_to "all movies", movies_path() %>
+
+<h2>Create a new List</h2>
+
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <%= simple_form_for [@list] do |f| %>
+        <%= f.input :name  %>
+        <%= f.button :submit, class: 'btn btn-primary mt-3'%>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%= link_to "Sign Out", destroy_user_session_path, data: {turbo_method: :delete} %>
